@@ -10,32 +10,42 @@ var app = angular.module('test',['ngSanitize'])
         }, function myError(response) {
             $scope.items = response.statusText;
         });
-        var screenWidth = $window.innerWidth;
+
         var w = angular.element($window);
         w.bind('resize', function () {
             if ($window.innerWidth < 768){
-                $scope.itemsPerPage = 1;
-                $scope.currentItems = $scope.items.slice(0,$scope.itemsPerPage);
+                if( $scope.display=='desktop'){
+                    $scope.itemsPerPage = 1;
+                    $scope.currentItem = 0;
+                    $scope.currentItems = $scope.items.slice(0,$scope.itemsPerPage);
+                    $scope.$apply();
+                    $scope.display='mobile';
+                }
             }else{
-                $scope.itemsPerPage = 3;
-                $scope.currentItems = $scope.items.slice(0,$scope.itemsPerPage);
+                if( $scope.display=='mobile') {
+                    $scope.itemsPerPage = 3;
+                    $scope.currentItem = 0;
+                    $scope.currentItems = $scope.items.slice(0, $scope.itemsPerPage);
+                    $scope.$apply();
+                    $scope.display='desktop';
+                }
             }
-
         });
-        if (screenWidth < 768){
+        if ($window.innerWidth < 768){
             $scope.itemsPerPage = 1;
+            $scope.display='mobile';
         }else{
             $scope.itemsPerPage = 3;
+            $scope.display='desktop';
         }
         refindItems = function(){
             $scope.currentItems = $scope.items.slice(0,$scope.itemsPerPage);
-        }
-
+        };
 
         $scope.currentItem = 0;
-
         var indexCount=0;
         var maxStars = 5;
+
         $scope.getStars = function(index){
             return new Array($scope.currentItems[index].stars)
         };
@@ -46,34 +56,19 @@ var app = angular.module('test',['ngSanitize'])
             if(Math.ceil($scope.capItems/$scope.itemsPerPage)){
                 return new Array(Math.ceil($scope.capItems/$scope.itemsPerPage));
             }
-        }
+        };
         $scope.isActive = function (index) {
-            indexCount = 0;
-            var j=0;
-            for(var i=0;i<$scope.capItems;i++){
-                if($scope.currentItem==i){
-                    break;
-                }
-                if(j==$scope.itemsPerPage-1){
-                    indexCount++;
-                    j=0;
-                }
-                j++;
-            }
-
-
+            indexCount = Math.floor($scope.currentItem/$scope.itemsPerPage + 1/3);
             if(index == indexCount){
                 return 'dot-active';
             }
-
-        }
+        };
         $scope.right = function(){
-            if($scope.capItems>=$scope.currentItem*$scope.itemsPerPage){
+            if($scope.capItems>$scope.currentItem+$scope.itemsPerPage){
                 $scope.currentItem++;
                 $scope.currentItems = $scope.items.slice($scope.currentItem,$scope.currentItem+$scope.itemsPerPage);
             }
-
-        }
+        };
         $scope.left = function(){
             if($scope.currentItem>0){
                 $scope.currentItem--;

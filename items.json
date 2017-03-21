@@ -2,7 +2,7 @@
   {
     "img":"img/items/1.jpg",
     "discount":"-20%",
-    "stars": 5,
+    "stars": 1,
     "feedback": 27,
     "description": "Золотое кольцо 585 пробы</br> с бриллиантами",
     "price":"8 390.10",
@@ -13,7 +13,7 @@
   {
     "img":"img/items/2.jpg",
     "discount":"-20%",
-    "stars": 3,
+    "stars": 2,
     "feedback": 12,
     "description": "Золотое кольцо 585 пробы</br> с бриллиантами",
     "price":"8 390.10",
@@ -24,7 +24,7 @@
   {
     "img":"img/items/3.jpg",
     "discount":"-20%",
-    "stars": 4,
+    "stars": 3,
     "feedback": 43,
     "description": "Золотое кольцо 585 пробы</br> с бриллиантами",
     "price":"8 390.10",
@@ -35,7 +35,7 @@
   {
     "img":"img/items/2.jpg",
     "discount":"-20%",
-    "stars": 5,
+    "stars": 4,
     "feedback": 33,
     "description": "Золотое кольцо 585 пробы</br> с бриллиантами",
     "price":"8 390.10",
@@ -46,7 +46,7 @@
   {
     "img":"img/items/3.jpg",
     "discount":"-20%",
-    "stars": 4,
+    "stars": 5,
     "feedback": 43,
     "description": "Золотое кольцо 585 пробы</br> с бриллиантами",
     "price":"8 390.10",
@@ -57,40 +57,7 @@
   {
     "img":"img/items/2.jpg",
     "discount":"-20%",
-    "stars": 4,
-    "feedback": 27,
-    "description": "Золотое кольцо 585 пробы</br> с бриллиантами",
-    "price":"8 390.10",
-    "oldPrice":"9 500.00",
-    "linkHead":"Золотая ярмарка",
-    "linkText":"255 предложений"
-  },
-  {
-    "img":"img/items/3.jpg",
-    "discount":"-20%",
-    "stars": 2,
-    "feedback": 27,
-    "description": "Золотое кольцо 585 пробы</br> с бриллиантами",
-    "price":"8 390.10",
-    "oldPrice":"9 500.00",
-    "linkHead":"Золотая ярмарка",
-    "linkText":"255 предложений"
-  },
-  {
-    "img":"img/items/1.jpg",
-    "discount":"-20%",
-    "stars": 4,
-    "feedback": 27,
-    "description": "Золотое кольцо 585 пробы</br> с бриллиантами",
-    "price":"8 390.10",
-    "oldPrice":"9 500.00",
-    "linkHead":"Золотая ярмарка",
-    "linkText":"255 предложений"
-  },
-  {
-    "img":"img/items/3.jpg",
-    "discount":"-20%",
-    "stars": 5,
+    "stars": 1,
     "feedback": 27,
     "description": "Золотое кольцо 585 пробы</br> с бриллиантами",
     "price":"8 390.10",
