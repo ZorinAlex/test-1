@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="test">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+</head>
+<body ng-controller="testCtrl">
+    <section class="container header">
+        <h1>Горячие скидки</h1>
+        <p>Мы выбрали для Вас самые выгодные предложения</p>
+        <a href="#">В раздел акций <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+    </section>
+    <section class="container items" >
+
+        <div class="col-sm-4 item-wrapper" ng-repeat="item in currentItems">
+        <div class="item">
+            <div class="heart-btn">
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+            </div>
+            <img class="img-responsive" ng-src="{{item.img}}" alt=""/>
+            <div class="discount">
+                <span ng-bind="item.discount"></span>
+            </div>
+            <div class="feedback">
+                <div class="col-xs-6 left">
+                    <span ng-bind="item.stars"></span>
+                    <i class="fa fa-star" aria-hidden="true" ng-repeat="star in getStars($index) track by $index"></i>
+                    <i class="fa fa-star-o" aria-hidden="true" ng-repeat="star in getEmptyStars($index) track by $index"></i>
+                </div>
+                <div class="col-xs-6 right">
+                    <span ng-bind="item.feedback"></span>
+                    <span>Отзывов</span>
+                </div>
+                <div class="description">
+                    <p ng-bind-html="item.description"></p>
+                </div>
+            </div>
+            <div class="prices">
+                <span class="price">
+                    <span  ng-bind="item.price"></span>грн
+                </span>
+                <span class="old-price">
+                    <strike ng-bind="item.oldPrice">9 500.00</strike> грн
+                </span>
+
+            </div>
+
+
+            <div class="item-bottom">
+                <p ng-bind="item.linkHead"></p>
+                <a href="#" ng-bind="item.linkText"></a>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+        <div class="btn-left" ng-click="left()"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+        <div class="btn-right" ng-click="right()"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+    </section>
+    <section class="container dots">
+
+            <div class="dot-item" ng-repeat="dot in getDots($index) track by $index" ng-class="isActive($index)"></div>
+
+    </section>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular-sanitize.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
